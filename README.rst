@@ -7,8 +7,8 @@ An app where `Pomu Rainpuff`__ reminds you to drink your water.
 
 .. __: https://www.nijisanji.jp/en/members/pomu-rainpuff
 
-Note for Ubuntu users
----------------------
+Note for WSL users
+------------------
 
 You may notice that after using ``aqt`` to download Qt, we run the command
 
@@ -34,6 +34,8 @@ trying to run ``qmake``, ``designer``, etc.
 
 Solution originally found from `this StackOverflow answer`__, which finally put
 to an end a couple days' worth of torture and pain in trying to get Qt 6 to
-work on WSL 1 Ubuntu.
+work on WSL 1 Ubuntu. See also the corresponding `official WSL GitHub issue`__.
 
 .. __: https://stackoverflow.com/a/64594256/14227825
+
+.. __: https://github.com/microsoft/WSL/issues/3023
