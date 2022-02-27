@@ -9,8 +9,8 @@
 
 int main(int argc, char **argv)
 {
-  const QPalette palette(QColor("55557f"));
-  QApplication app(argc, argv);
+  const QPalette palette = QPalette(QColor("55557f"));
+  QApplication app = QApplication(argc, argv);
   app.setPalette(palette);
   return app.exec();
 }
