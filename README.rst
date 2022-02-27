@@ -12,7 +12,10 @@ A `Qt6`__ app where `Pomu Rainpuff`__ reminds you to drink your water.
 Note for WSL users
 ------------------
 
-You may notice that after using ``aqt`` to download Qt, we run the command
+.. _aqt: https://github.com/miurahr/aqtinstall
+
+You may notice that in the Linux build [#]_, after using aqt_ to download Qt,
+we run the command
 
 .. code:: bash
 
@@ -41,3 +44,5 @@ work on WSL 1 Ubuntu. See also the corresponding `official WSL GitHub issue`__.
 .. __: https://stackoverflow.com/a/64594256/14227825
 
 .. __: https://github.com/microsoft/WSL/issues/3023
+
+.. [#] No builds are available yet.
