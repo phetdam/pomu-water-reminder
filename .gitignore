@@ -1,0 +1,3 @@
+# ignore VSCode project directory
+.vscode
+**/*.so
