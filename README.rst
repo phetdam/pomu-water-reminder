@@ -5,6 +5,12 @@ pomu-water-reminder
 
 A `Qt6`__ app where `Pomu Rainpuff`__ reminds you to drink your water.
 
+   Disclaimer:
+
+   This project is in no way affiliated with NIJISANJI, NIJISANJI EN, ANYCOLOR,
+   or any project of ANYCOLOR and is only intended for educational and
+   entertainment purposes.
+
 .. __: https://www.qt.io/product/qt6
 
 .. __: https://www.nijisanji.jp/en/members/pomu-rainpuff
