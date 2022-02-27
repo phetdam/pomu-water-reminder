@@ -3,7 +3,7 @@
 pomu-water-reminder
 ===================
 
-A `Qt6`__` app where `Pomu Rainpuff`__ reminds you to drink your water.
+A `Qt6`__ app where `Pomu Rainpuff`__ reminds you to drink your water.
 
 .. __: https://www.qt.io/product/qt6
 
