@@ -1,3 +1,5 @@
 # ignore VSCode project directory
 .vscode
+# ignore build files
+build
 **/*.so
