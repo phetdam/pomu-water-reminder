@@ -13,7 +13,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
 
 set(CMAKE_PREFIX_PATH ./Qt6:/opt/Qt6.2.3)
 
-find_package(Qt6 REQUIRED COMPONENTS Gui Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
+include_directories(src)
 
 add_executable(pomwr src/main.cc)
 target_link_libraries(pomwr PRIVATE Qt6::Gui Qt6::Widgets)

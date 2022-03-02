@@ -1,6 +1,8 @@
 /**
  * @file main.cc
+ * @author Derek Huang <djh458@stern.nyu.edu>
  * @brief Main entry point for app.
+ * @copyright MIT License
  */
 
 #include <QtCore/QSize>
@@ -11,7 +13,7 @@
 
 int main(int argc, char **argv)
 {
-  QPalette palette = QPalette(QColor("55557f"));
+  QPalette palette = QPalette(QColor("#55557f"));
   QApplication app = QApplication(argc, argv);
   app.setPalette(palette);
   QMainWindow main_window = QMainWindow();
