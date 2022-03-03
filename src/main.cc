@@ -13,8 +13,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 
-#include "qwidgetutils.h"
-#include "waternotif.h"
+#include "qwidgets/miscutils.h"
+#include "qwidgets/notification.h"
 
 int main(int argc, char **argv)
 {

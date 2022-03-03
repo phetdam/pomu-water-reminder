@@ -7,16 +7,6 @@ project(
     LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -O3")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
-set(CMAKE_PREFIX_PATH ./Qt6:/opt/Qt6.2.3)
-
-set(CMAKE_AUTOMOC ON)
-
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
-include_directories(src)
-
-add_executable(pomwr src/main.cc src/qwidgetutils.cc src/waternotif.cc)
-target_link_libraries(pomwr PRIVATE Qt6::Gui Qt6::Widgets)
+add_subdirectory(src)

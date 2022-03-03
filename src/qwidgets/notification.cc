@@ -1,11 +1,11 @@
 /**
- * @file waternotif.cc
+ * @file notification.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
  * @brief Implementation for the pomwr notification window.
  * @copyright MIT License
  */
 
-#include "waternotif.h"
+#include "notification.h"
 
 #include <memory>
 
@@ -16,7 +16,7 @@
 #include <QtGui/QFont>
 #include <QtGui/QPalette>
 
-#include "qwidgetutils.h"
+#include "miscutils.h"
 
 namespace pwr {
 
@@ -77,16 +77,15 @@ WaterNotif::WaterNotif(const QPalette &palette)
  */
 WaterNotif::WaterNotif() : WaterNotif(pwr::BasePalette()) {}
 
-// dummy slot implementation
-void WaterNotif::emit_yes_signal()
-{
-  emit yes_signal();
-}
-
-// dummy slot implementation
-void WaterNotif::emit_no_signal()
-{
-  emit no_signal();
-}
+/**
+ * Getters for QWidgets managed by the WaterNotif.
+ * 
+ * These can all be used to access and modify the state of the private QWidgets
+ * while internally storage duration is managed by std::unique_ptr instances.
+ */
+QPushButton &WaterNotif::button_yes() const { return *button_yes_; }
+QPushButton &WaterNotif::button_no() const { return *button_no_; }
+QLabel &WaterNotif::label_decl() const { return *label_decl_; }
+QLabel &WaterNotif::label_prompt() const { return *label_prompt_; }
 
 } // namespace pwr
