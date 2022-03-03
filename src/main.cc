@@ -13,8 +13,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 
-#include "qwidgets/miscutils.h"
-#include "qwidgets/notification.h"
+#include "gui/utils.h"
+#include "gui/alert.h"
 
 int main(int argc, char **argv)
 {
@@ -25,8 +25,8 @@ int main(int argc, char **argv)
   // make main_window non-resizable
   pwr::FixWidgetSize(main_window, QSize(565, 565));
   // remove later -- just to demonstrate the notification window
-  std::unique_ptr<pwr::WaterNotif> notif_window =
-    std::make_unique<pwr::WaterNotif>();
+  std::unique_ptr<pwr::WaterAlert> notif_window =
+    std::make_unique<pwr::WaterAlert>();
   // show both windows
   main_window.show();
   notif_window->show();

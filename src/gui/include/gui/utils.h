@@ -1,5 +1,5 @@
 /**
- * @file miscutils.h
+ * @file utils.h
  * @author Derek Huang <djh458@stern.nyu.edu>
  * @brief Declaration for QWidget utilities.
  * @copyright MIT License

@@ -1,11 +1,11 @@
 /**
- * @file miscutils.cc
+ * @file utils.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
  * @brief Defines QWidget utility functions.
  * @copyright MIT License
  */
 
-#include "miscutils.h"
+#include "gui/utils.h"
 
 #include <QtGui/QBrush>
 #include <QtGui/QPalette>
