@@ -77,4 +77,16 @@ WaterNotif::WaterNotif(const QPalette &palette)
  */
 WaterNotif::WaterNotif() : WaterNotif(pwr::BasePalette()) {}
 
+// dummy slot implementation
+void WaterNotif::emit_yes_signal()
+{
+  emit yes_signal();
+}
+
+// dummy slot implementation
+void WaterNotif::emit_no_signal()
+{
+  emit no_signal();
+}
+
 } // namespace pwr

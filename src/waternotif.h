@@ -24,19 +24,19 @@ namespace pwr {
 
 class WaterNotif: public QDialog
 {
-  // Q_OBJECT
+  Q_OBJECT
 
 public:
   WaterNotif();
   WaterNotif(const QPalette &);
 
-// public slots:
-//   void emit_yes_signal();
-//   void emit_no_signal();
+public slots:
+  void emit_yes_signal();
+  void emit_no_signal();
 
-// signals:
-//   void yes_signal();
-//   void no_signal();
+signals:
+  void yes_signal();
+  void no_signal();
 
 private:
   static const QSize window_size_;
