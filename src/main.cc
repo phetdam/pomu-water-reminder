@@ -23,14 +23,12 @@ int main(int argc, char **argv)
   app.setPalette(palette);
   QMainWindow main_window = QMainWindow();
   // make main_window non-resizable
-  QSize main_window_size = QSize(565, 565);
-  main_window.resize(main_window_size);
-  main_window.setMinimumSize(main_window_size);
-  main_window.setMaximumSize(main_window_size);
-  main_window.show();
+  pwr::FixWidgetSize(main_window, QSize(565, 565));
   // remove later -- just to demonstrate the notification window
   std::unique_ptr<pwr::WaterNotif> notif_window =
     std::make_unique<pwr::WaterNotif>();
+  // show both windows
+  main_window.show();
   notif_window->show();
   return app.exec();
 }
