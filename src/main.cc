@@ -8,6 +8,7 @@
 #include <memory>
 
 #include <QtCore/QSize>
+#include <QtCore/Qt>
 #include <QtGui/QColor>
 #include <QtGui/QPalette>
 #include <QtWidgets/QApplication>
@@ -26,7 +27,7 @@ int main(int argc, char **argv)
   pwr::FixWidgetSize(main_window, QSize(565, 565));
   // remove later -- just to demonstrate the notification window
   std::unique_ptr<pwr::WaterAlert> notif_window =
-    std::make_unique<pwr::WaterAlert>();
+    std::make_unique<pwr::WaterAlert>(&main_window);
   // show both windows
   main_window.show();
   notif_window->show();

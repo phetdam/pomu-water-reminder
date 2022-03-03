@@ -15,6 +15,8 @@
 #include <QtCore/QString>
 #include <QtGui/QFont>
 #include <QtGui/QPalette>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 #include "gui/utils.h"
 
@@ -28,17 +30,20 @@ const QFont WaterAlert::button_font_ = QFont(QString("Consolas"), 24);
 /**
  * Overloaded constructor for the `WaterAlert` that accepts a `QPalette &`.
  * 
- * WaterAlert is a subclass of QDialog that manages its own widget data, which
- * we initialize in the constructor. The `WaterAlert` is also capable of
- * emitting its own signals through slot functions.
+ * WaterAlert is an application-modal subclass of QDialog that manages its own
+ * widget data, which we initialize in the constructor. The `WaterAlert` is
+ * also capable of emitting its own signals through slot functions.
  * 
- * @param palette `QPalette` reference set palette as. Defaults to whatever
- *     `QPalette` is returned by `pwr::BasePalette`.
+ * @param parent `QWidget` pointer to a parent widget.
+ * @param palette `QPalette` reference to set the palette as. Defaults to
+ *     whatever `QPalette` is returned by `pwr::BasePalette`.
  */
-WaterAlert::WaterAlert(const QPalette &palette)
+WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
+  : QDialog(parent)
 {
   FixWidgetSize(*this, WaterAlert::window_size_);
-  this->setPalette(palette);
+  setPalette(palette);
+  setModal(true);
   // init + format the "yes" button. button text is "hai" in hiragana. this is
   // a flat style button with red 24 pt Consolas text.
   button_yes_ = std::make_unique<QPushButton>(
@@ -67,15 +72,25 @@ WaterAlert::WaterAlert(const QPalette &palette)
   label_prompt_ = std::make_unique<QLabel>("Will you drink your water?", this);
   label_prompt_->setGeometry(QRect(10, 40, 241, 21));
   label_prompt_->setFont(QFont("Sans Serif", 12, QFont::Bold));
-  // QMetaObject::connectSlotsByName(this);
 }
+
+/**
+ * Overloaded constructor for the `WaterAlert`.
+ * 
+ * Uses the `QPalette` returned by `pwr::BasePalette`.
+ * 
+ * @param parent `QWidget` pointer to a parent widget.
+ */
+WaterAlert::WaterAlert(QWidget *parent)
+  : WaterAlert(parent, pwr::BasePalette())
+{}
 
 /**
  * Default constructor for the `WaterAlert`.
  * 
- * Uses the `QPalette` returned by `pwr::BasePalette`.
+ * No parent `QWidget` and uses the `QPalette` from `pwr::BasePalette`.
  */
-WaterAlert::WaterAlert() : WaterAlert(pwr::BasePalette()) {}
+WaterAlert::WaterAlert() : WaterAlert(nullptr) {}
 
 /**
  * Getters for QWidgets managed by the WaterAlert.

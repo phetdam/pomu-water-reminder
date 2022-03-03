@@ -18,6 +18,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QWidget>
 
 namespace pwr {
 
@@ -25,7 +26,8 @@ class WaterAlert: public QDialog
 {
 public:
   WaterAlert();
-  WaterAlert(const QPalette &);
+  WaterAlert(QWidget *);
+  WaterAlert(QWidget *, const QPalette &);
   QPushButton &button_yes() const;
   QPushButton &button_no() const;
   QLabel &label_decl() const;
