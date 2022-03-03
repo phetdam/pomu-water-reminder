@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-#
-# Simple CMake wrapper script to build the app.
-
-cmake -S . -B build
-cmake --build build
