@@ -16,5 +16,5 @@ set(CMAKE_PREFIX_PATH ./Qt6:/opt/Qt6.2.3)
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 include_directories(src)
 
-add_executable(pomwr src/main.cc)
+add_executable(pomwr src/main.cc src/qwidgetutils.cc src/waternotif.cc)
 target_link_libraries(pomwr PRIVATE Qt6::Gui Qt6::Widgets)
