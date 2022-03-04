@@ -1,7 +1,7 @@
 /**
  * @file utils.h
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Declaration for QWidget utilities.
+ * @brief Header for QObject, primarily QWidget, utilities.
  * @copyright MIT License
  */
 
@@ -9,8 +9,12 @@
 #include <QtGui/QPalette>
 #include <QtWidgets/QWidget>
 
-#ifndef PWR_MISCUTILS_H_
-#define PWR_MISCUTILS_H_
+#ifndef PWR_GUI_UTILS_H_
+#define PWR_GUI_UTILS_H_
+
+// for any QObject subclass, indicates that this QObject * is managed by the
+// subclass instance and therefore does not need to be manually deleted.
+#define QOBJECT_MANAGED_CHILD
 
 namespace pwr {
 
@@ -20,4 +24,4 @@ void FixWidgetSize(QWidget &, int, int);
 
 } // namespace pwr
 
-#endif // PWR_MISCUTILS_H_
+#endif // PWR_GUI_UTILS_H_

@@ -7,8 +7,6 @@
 
 #include "gui/alert.h"
 
-#include <memory>
-
 #include <QtCore/QPoint>
 #include <QtCore/QRect>
 #include <QtCore/QSize>
@@ -45,31 +43,25 @@ WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
   setPalette(palette);
   setModal(true);
   // init + format the "yes" button. button text is "hai" in hiragana. this is
-  // a flat style button with red 24 pt Consolas text.
-  button_yes_ = std::make_unique<QPushButton>(
-    QString("\343\201\257\343\201\204"), this
-  );
+  // a flat style button with red 24 pt Consolas text. note that since we set
+  button_yes_ = new QPushButton(QString("\343\201\257\343\201\204"), this);
   button_yes_->setGeometry(QRect(QPoint(30, 90), WaterAlert::button_size_));
   button_yes_->setStyleSheet(QString("QPushButton {color: #00ff00}"));
   button_yes_->setFont(WaterAlert::button_font_);
   button_yes_->setFlat(true);
   // init + format the "no" button. button text is "ie" in hiragana. this is a
   // flat style button with green 24 pt Consolas text.
-  button_no_ = std::make_unique<QPushButton>(
-    QString("\343\201\204\343\201\210"), this
-  );
+  button_no_ = new QPushButton(QString("\343\201\204\343\201\210"), this);
   button_no_->setGeometry(QRect(QPoint(300, 90), WaterAlert::button_size_));
   button_no_->setStyleSheet(QString("QPushButton {color: #ff0000}"));
   button_no_->setFont(WaterAlert::button_font_);
   button_no_->setFlat(true);
   // init + format the declarative label. font is auto size Consolas.
-  label_decl_ = std::make_unique<QLabel>(
-    "Pomu is telling you to drink your water!", this
-  );
+  label_decl_ = new QLabel("Pomu is telling you to drink your water!", this);
   label_decl_->setGeometry(QRect(10, 10, 291, 21));
   label_decl_->setFont(QFont("Consolas"));
   // init + format the prompt label. font is 12 pt Sans Serif bold.
-  label_prompt_ = std::make_unique<QLabel>("Will you drink your water?", this);
+  label_prompt_ = new QLabel("Will you drink your water?", this);
   label_prompt_->setGeometry(QRect(10, 40, 241, 21));
   label_prompt_->setFont(QFont("Sans Serif", 12, QFont::Bold));
 }
@@ -81,9 +73,7 @@ WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
  * 
  * @param parent `QWidget` pointer to a parent widget.
  */
-WaterAlert::WaterAlert(QWidget *parent)
-  : WaterAlert(parent, pwr::BasePalette())
-{}
+WaterAlert::WaterAlert(QWidget *parent) : WaterAlert(parent, BasePalette()) {}
 
 /**
  * Default constructor for the `WaterAlert`.

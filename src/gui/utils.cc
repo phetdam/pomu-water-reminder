@@ -1,7 +1,7 @@
 /**
  * @file utils.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Defines QWidget utility functions.
+ * @brief Defines QObject, primarily QWidget, utility functions.
  * @copyright MIT License
  */
 

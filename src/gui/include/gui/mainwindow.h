@@ -7,8 +7,10 @@
 
 #include <memory>
 
+#include <QtCore/QSize>
 #include <QtCore/Qt>
 #include <QtGui/QAction>
+#include <QtGui/QPalette>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -16,13 +18,18 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
+#include "gui/utils.h"
+
 #ifndef PWR_MAINWINDOW_H_
 #define PWR_MAINWINDOW_H_
+
+namespace pwr {
 
 class MainWindow: public QMainWindow
 {
 public:
-  MainWindow(QWidget * = nullptr);
+  MainWindow();
+  MainWindow(const QPalette &);
   QLabel &image_label() const;
   QMenuBar &menu_bar() const;
   QMenu &file_menu() const;
@@ -36,17 +43,23 @@ public:
   QAction &about_action() const;
   QStatusBar &status_bar() const;
 
+protected:
+  void closeEvent(QCloseEvent *);
+
 private:
-  std::unique_ptr<QLabel> image_label_;
-  std::unique_ptr<QMenu> file_menu_;
-  std::unique_ptr<QMenu> settings_menu_;
-  std::unique_ptr<QMenu> help_menu_;
-  std::unique_ptr<QAction> save_profile_action_;
-  std::unique_ptr<QAction> load_profile_action_;
-  std::unique_ptr<QAction> config_action_;
-  std::unique_ptr<QAction> prefs_action_;
-  std::unique_ptr<QAction> key_shortcuts_action_;
-  std::unique_ptr<QAction> about_action_;
+  static const QSize window_size_;
+  QOBJECT_MANAGED_CHILD QLabel *image_label_;
+  QOBJECT_MANAGED_CHILD QMenu *file_menu_;
+  QOBJECT_MANAGED_CHILD QMenu *settings_menu_;
+  QOBJECT_MANAGED_CHILD QMenu *help_menu_;
+  QOBJECT_MANAGED_CHILD QAction *save_profile_action_;
+  QOBJECT_MANAGED_CHILD QAction *load_profile_action_;
+  QOBJECT_MANAGED_CHILD QAction *config_action_;
+  QOBJECT_MANAGED_CHILD QAction *prefs_action_;
+  QOBJECT_MANAGED_CHILD QAction *key_shortcuts_action_;
+  QOBJECT_MANAGED_CHILD QAction *about_action_;
 };
+
+} // namespace pwr
 
 #endif // PWR_MAINWINDOW_H_

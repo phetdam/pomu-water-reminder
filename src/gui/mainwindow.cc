@@ -1,12 +1,17 @@
 /**
  * @file mainwindow.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Implements the MainWindow methods.
+ * @brief Implements the main pomwr application window.
  * @copyright MIT License
  */
 
+#include "gui/mainwindow.h"
+
+#include <QtCore/QString>
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QCloseEvent>
+#include <QtGui/QPixmap>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -17,21 +22,71 @@
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
-QT_BEGIN_NAMESPACE
+#include "gui/utils.h"
 
+namespace pwr {
+
+// size of the main window/central QLabel displaying Pomu
+const QSize MainWindow::window_size_ = QSize(565, 565);
+
+/**
+ * Overloaded `MainWindow` constructor accepting a `QPalette &`.
+ * 
+ * @param palette Reference to desired `QPalette`
+ */
+MainWindow::MainWindow(const QPalette &palette)
+{
+  // set size and palette for MainWindow
+  FixWidgetSize(*this, MainWindow::window_size_);
+  setPalette(palette);
+  // QMainWindow main widget displaying Pomu. the QMainWindow base class needs
+  // and owns the central widget, freeing when necessary.
+  image_label_ = new QLabel(this);
+  setCentralWidget(image_label_);
+  FixWidgetSize(*image_label_, MainWindow::window_size_);
+  image_label_->setPixmap(QPixmap(QString(":/images/pomu_rainpuff_smile.png")));
+  // status bar setup. MainWindow will own and deallocate this object.
+  statusBar()->setSizeGripEnabled(false);
+}
+
+/**
+ * `MainWindow` default constructor.
+ * 
+ * Uses the default `QPalette` provided by `pwr::BasePalette`.
+ */
+MainWindow::MainWindow() : MainWindow(BasePalette()) {}
+
+/**
+ * Handles the `QCloseEvent` received when one attempts to close the app.
+ * 
+ * @param event `QCloseEvent` pointer to the triggering event
+ */
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+  // todo: if not saved, pop up a window
+  event->accept();
+}
+
+/**
+ * Getters for QWidgets managed by the MainWindow.
+ * 
+ * These can all be used to access and modify the state of the private QWidgets
+ * while internally storage duration is managed by std::unique_ptr instances.
+ */
+QStatusBar &MainWindow::status_bar() const { return *statusBar(); }
+
+/*
 class Ui_MainWindow
 {
-    /*
-    QApplication app = QApplication(argc, argv);
-  app.setPalette(palette);
-  QMainWindow main_window = QMainWindow();
-  // make main_window non-resizable
-  const QSize main_window_size = QSize(565, 565);
-  main_window.resize(main_window_size);
-  main_window.setMinimumSize(main_window_size);
-  main_window.setMaximumSize(main_window_size);
-  main_window.show();
-    */
+  //   QApplication app = QApplication(argc, argv);
+  // app.setPalette(palette);
+  // QMainWindow main_window = QMainWindow();
+  // // make main_window non-resizable
+  // const QSize main_window_size = QSize(565, 565);
+  // main_window.resize(main_window_size);
+  // main_window.setMinimumSize(main_window_size);
+  // main_window.setMaximumSize(main_window_size);
+  // main_window.show();
 public:
     QAction *actionSave_Profile_As;
     QAction *actionPreferences;
@@ -59,76 +114,6 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(500, 686);
-        MainWindow->setMinimumSize(QSize(500, 686));
-        MainWindow->setMaximumSize(QSize(500, 686));
-        QPalette palette;
-        QBrush brush(QColor(255, 255, 255, 255));
-        brush.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
-        QBrush brush1(QColor(85, 85, 127, 255));
-        brush1.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
-        QBrush brush2(QColor(127, 127, 190, 255));
-        brush2.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Light, brush2);
-        QBrush brush3(QColor(106, 106, 158, 255));
-        brush3.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Midlight, brush3);
-        QBrush brush4(QColor(42, 42, 63, 255));
-        brush4.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Dark, brush4);
-        QBrush brush5(QColor(57, 57, 85, 255));
-        brush5.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Mid, brush5);
-        palette.setBrush(QPalette::Active, QPalette::Text, brush);
-        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
-        QBrush brush6(QColor(0, 0, 0, 255));
-        brush6.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::Base, brush6);
-        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
-        palette.setBrush(QPalette::Active, QPalette::Shadow, brush6);
-        palette.setBrush(QPalette::Active, QPalette::AlternateBase, brush4);
-        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        QBrush brush7(QColor(239, 239, 239, 255));
-        brush7.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Button, brush7);
-        palette.setBrush(QPalette::Inactive, QPalette::Light, brush);
-        QBrush brush8(QColor(202, 202, 202, 255));
-        brush8.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Midlight, brush8);
-        QBrush brush9(QColor(159, 159, 159, 255));
-        brush9.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Dark, brush9);
-        QBrush brush10(QColor(184, 184, 184, 255));
-        brush10.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Mid, brush10);
-        palette.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::Window, brush7);
-        QBrush brush11(QColor(118, 118, 118, 255));
-        brush11.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::Shadow, brush11);
-        QBrush brush12(QColor(247, 247, 247, 255));
-        brush12.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush12);
-        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Light, brush2);
-        palette.setBrush(QPalette::Disabled, QPalette::Midlight, brush3);
-        palette.setBrush(QPalette::Disabled, QPalette::Dark, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::Mid, brush5);
-        palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush4);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
-        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
-        QBrush brush13(QColor(177, 177, 177, 255));
-        brush13.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Shadow, brush13);
-        palette.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush12);
-        MainWindow->setPalette(palette);
-        MainWindow->setStyleSheet(QString::fromUtf8(""));
         actionSave_Profile_As = new QAction(MainWindow);
         actionSave_Profile_As->setObjectName(QString::fromUtf8("actionSave_Profile_As"));
         actionPreferences = new QAction(MainWindow);
@@ -238,3 +223,6 @@ public:
     } // retranslateUi
 
 };
+*/
+
+} // namespace pwr

@@ -10,8 +10,6 @@
 #ifndef PWR_ALERT_H_
 #define PWR_ALERT_H_
 
-#include <memory>
-
 #include <QtCore/QSize>
 #include <QtGui/QFont>
 #include <QtGui/QPalette>
@@ -19,6 +17,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
+
+#include "gui/utils.h"
 
 namespace pwr {
 
@@ -37,10 +37,10 @@ private:
   static const QSize window_size_;
   static const QSize button_size_;
   static const QFont button_font_;
-  std::unique_ptr<QPushButton> button_yes_;
-  std::unique_ptr<QPushButton> button_no_;
-  std::unique_ptr<QLabel> label_decl_;
-  std::unique_ptr<QLabel> label_prompt_;
+  QOBJECT_MANAGED_CHILD QPushButton *button_yes_;
+  QOBJECT_MANAGED_CHILD QPushButton *button_no_;
+  QOBJECT_MANAGED_CHILD QLabel *label_decl_;
+  QOBJECT_MANAGED_CHILD QLabel *label_prompt_;
 };
 
 } // namespace pwr

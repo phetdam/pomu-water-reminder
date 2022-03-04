@@ -30,6 +30,6 @@ int main(int argc, char **argv)
     std::make_unique<pwr::WaterAlert>(&main_window);
   // show both windows
   main_window.show();
-  notif_window->show();
+  notif_window->exec();
   return app.exec();
 }
