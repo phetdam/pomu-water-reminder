@@ -12,24 +12,23 @@
 #include <QtGui/QColor>
 #include <QtGui/QPalette>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QMainWindow>
 
-#include "gui/utils.h"
 #include "gui/alert.h"
+#include "gui/mainwindow.h"
+#include "gui/utils.h"
 
 int main(int argc, char **argv)
 {
   QPalette palette = pwr::BasePalette();
   QApplication app = QApplication(argc, argv);
   app.setPalette(palette);
-  QMainWindow main_window = QMainWindow();
-  // make main_window non-resizable
-  pwr::FixWidgetSize(main_window, QSize(565, 565));
+  std::unique_ptr<pwr::MainWindow> main_window =
+    std::make_unique<pwr::MainWindow>();
   // remove later -- just to demonstrate the notification window
-  std::unique_ptr<pwr::WaterAlert> notif_window =
-    std::make_unique<pwr::WaterAlert>(&main_window);
+  QOBJECT_MANAGED_CHILD pwr::WaterAlert *notif_window =
+    new pwr::WaterAlert(main_window.get());
   // show both windows
-  main_window.show();
-  notif_window->exec();
+  main_window->show();
+  notif_window->show();
   return app.exec();
 }
