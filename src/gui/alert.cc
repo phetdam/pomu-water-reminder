@@ -88,9 +88,9 @@ WaterAlert::WaterAlert() : WaterAlert(nullptr) {}
  * These can all be used to access and modify the state of the private QWidgets
  * while internally storage duration is managed by std::unique_ptr instances.
  */
-QPushButton &WaterAlert::button_yes() const { return *button_yes_; }
-QPushButton &WaterAlert::button_no() const { return *button_no_; }
-QLabel &WaterAlert::label_decl() const { return *label_decl_; }
-QLabel &WaterAlert::label_prompt() const { return *label_prompt_; }
+QPushButton *WaterAlert::button_yes() const { return button_yes_; }
+QPushButton *WaterAlert::button_no() const { return button_no_; }
+QLabel *WaterAlert::label_decl() const { return label_decl_; }
+QLabel *WaterAlert::label_prompt() const { return label_prompt_; }
 
 } // namespace pwr

@@ -26,8 +26,9 @@
 
 namespace pwr {
 
-// size of the main window/central QLabel displaying Pomu
-const QSize MainWindow::window_size_ = QSize(565, 565);
+// sizes of the main window, central QLabel displaying Pomu
+const QSize MainWindow::window_size_ = QSize(565, 585);
+const QSize MainWindow::image_size_ = QSize(565, 565);
 
 /**
  * Overloaded `MainWindow` constructor accepting a `QPalette &`.
@@ -43,9 +44,12 @@ MainWindow::MainWindow(const QPalette &palette)
   // and owns the central widget, freeing when necessary.
   image_label_ = new QLabel(this);
   setCentralWidget(image_label_);
-  FixWidgetSize(*image_label_, MainWindow::window_size_);
+  FixWidgetSize(*image_label_, MainWindow::image_size_);
   image_label_->setPixmap(QPixmap(QString(":/images/pomu_rainpuff_smile.png")));
-  // status bar setup. MainWindow will own and deallocate this object.
+  // menu bar setup. MainWindow will own and deallocate this object
+  menuBar();
+  // add toolbar and toolbar actions
+  // status bar setup. MainWindow will own and deallocate this object
   statusBar()->setSizeGripEnabled(false);
 }
 
@@ -73,7 +77,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
  * These can all be used to access and modify the state of the private QWidgets
  * while internally storage duration is managed by std::unique_ptr instances.
  */
-QStatusBar &MainWindow::status_bar() const { return *statusBar(); }
+QMenuBar *MainWindow::menu_bar() const { return menuBar(); }
+QStatusBar *MainWindow::status_bar() const { return statusBar(); }
 
 /*
 class Ui_MainWindow

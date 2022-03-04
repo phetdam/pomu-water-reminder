@@ -28,10 +28,10 @@ public:
   WaterAlert();
   WaterAlert(QWidget *);
   WaterAlert(QWidget *, const QPalette &);
-  QPushButton &button_yes() const;
-  QPushButton &button_no() const;
-  QLabel &label_decl() const;
-  QLabel &label_prompt() const;
+  QPushButton *button_yes() const;
+  QPushButton *button_no() const;
+  QLabel *label_decl() const;
+  QLabel *label_prompt() const;
 
 private:
   static const QSize window_size_;
