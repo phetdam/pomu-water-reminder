@@ -1,7 +1,7 @@
 .. README.rst
 
-water-reminder
-==============
+qt-water-reminder
+=================
 
 A `Qt6`__ app that reminds you to drink your water.
 
