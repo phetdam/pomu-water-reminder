@@ -16,7 +16,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMenu>
 
-#include "gui/alert.h"
+#include "gui/alertdialog.h"
 #include "gui/mainwindow.h"
 #include "gui/utils.h"
 

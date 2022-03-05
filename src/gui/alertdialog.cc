@@ -1,11 +1,11 @@
 /**
- * @file alert.cc
+ * @file alertdialog.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Implementation for the qtwr notification window.
+ * @brief Implementation for the qtwr water alert dialog.
  * @copyright MIT License
  */
 
-#include "gui/alert.h"
+#include "gui/alertdialog.h"
 
 #include <QtCore/QPoint>
 #include <QtCore/QRect>
