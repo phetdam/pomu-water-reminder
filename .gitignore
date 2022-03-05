@@ -2,4 +2,5 @@
 .vscode
 # ignore build files
 build
+build-windows
 **/*.so
