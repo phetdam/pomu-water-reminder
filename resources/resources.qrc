@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="/images/">
+  <qresource prefix="/images">
     <file>pomu_rainpuff_smile.png</file>
     <file>pomu_rainpuff_surprise.png</file>
     <file>pomu_rainpuff_portrait.png</file>
