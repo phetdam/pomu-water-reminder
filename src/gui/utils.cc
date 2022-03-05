@@ -11,7 +11,7 @@
 #include <QtGui/QPalette>
 #include <QtWidgets/QWidget>
 
-namespace pwr {
+namespace qwr {
 
 /**
  * Return the base palette used by the pomwr app.
@@ -53,4 +53,4 @@ void FixWidgetSize(QWidget &widget, int width, int height)
   widget.setMaximumSize(width, height);
 }
 
-} // namespace pwr
+} // namespace qwr

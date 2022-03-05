@@ -5,13 +5,17 @@
  * @copyright MIT License
  */
 
+#include <iostream>
 #include <memory>
 
 #include <QtCore/QSize>
 #include <QtCore/Qt>
 #include <QtGui/QColor>
+#include <QtGui/QIcon>
 #include <QtGui/QPalette>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QMenu>
+#include <QtWidgets/QSystemTrayIcon>
 
 #include "gui/alert.h"
 #include "gui/mainwindow.h"
@@ -19,16 +23,30 @@
 
 int main(int argc, char **argv)
 {
-  QPalette palette = pwr::BasePalette();
+  QPalette palette = qwr::BasePalette();
   QApplication app = QApplication(argc, argv);
   app.setPalette(palette);
-  std::unique_ptr<pwr::MainWindow> main_window =
-    std::make_unique<pwr::MainWindow>();
+  std::unique_ptr<qwr::MainWindow> main_window =
+    std::make_unique<qwr::MainWindow>();
   // remove later -- just to demonstrate the notification window
-  QOBJECT_MANAGED_CHILD pwr::WaterAlert *notif_window =
-    new pwr::WaterAlert(main_window.get());
+  QOBJECT_MANAGED_CHILD qwr::WaterAlert *notif_window = new qwr::WaterAlert(
+    main_window.get()
+  );
   // show both windows
+  // test system tray icon
+  QOBJECT_MANAGED_CHILD QMenu *tray_menu = new QMenu(
+    "default menu",
+    main_window.get()
+  );
+  QOBJECT_MANAGED_CHILD QSystemTrayIcon *sys_icon = new QSystemTrayIcon(
+    QIcon(":/images/water_icon.png"),
+    main_window.get()
+  );
+  sys_icon->setContextMenu(tray_menu);
   main_window->show();
   notif_window->show();
+  sys_icon->show();
+  sys_icon->showMessage("my title", "hamood backwards");
+  std::cout << QSystemTrayIcon::supportsMessages() << "\n";
   return app.exec();
 }

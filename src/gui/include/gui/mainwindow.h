@@ -1,7 +1,7 @@
 /**
  * @file mainwindow.h
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Header file defining the main pomwr application window.
+ * @brief Header file defining the main qtwr application window.
  * @copyright MIT License
  */
 
@@ -20,10 +20,10 @@
 
 #include "gui/utils.h"
 
-#ifndef PWR_MAINWINDOW_H_
-#define PWR_MAINWINDOW_H_
+#ifndef QWR_GUI_MAINWINDOW_H_
+#define QWR_GUI_MAINWINDOW_H_
 
-namespace pwr {
+namespace qwr {
 
 class MainWindow: public QMainWindow
 {
@@ -61,6 +61,6 @@ private:
   QOBJECT_MANAGED_CHILD QAction *about_action_;
 };
 
-} // namespace pwr
+} // namespace qwr
 
-#endif // PWR_MAINWINDOW_H_
+#endif // QWR_GUI_MAINWINDOW_H_

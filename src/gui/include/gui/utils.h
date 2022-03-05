@@ -9,19 +9,19 @@
 #include <QtGui/QPalette>
 #include <QtWidgets/QWidget>
 
-#ifndef PWR_GUI_UTILS_H_
-#define PWR_GUI_UTILS_H_
+#ifndef QWR_GUI_UTILS_H_
+#define QWR_GUI_UTILS_H_
 
 // for any QObject subclass, indicates that this QObject * is managed by the
 // subclass instance and therefore does not need to be manually deleted.
 #define QOBJECT_MANAGED_CHILD
 
-namespace pwr {
+namespace qwr {
 
 QPalette BasePalette(void);
 void FixWidgetSize(QWidget &, const QSize &);
 void FixWidgetSize(QWidget &, int, int);
 
-} // namespace pwr
+} // namespace qwr
 
-#endif // PWR_GUI_UTILS_H_
+#endif // QWR_GUI_UTILS_H_

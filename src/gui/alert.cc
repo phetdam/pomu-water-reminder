@@ -1,7 +1,7 @@
 /**
  * @file alert.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Implementation for the pomwr notification window.
+ * @brief Implementation for the qtwr notification window.
  * @copyright MIT License
  */
 
@@ -18,7 +18,7 @@
 
 #include "gui/utils.h"
 
-namespace pwr {
+namespace qwr {
 
 // WaterAlert size of window, size of buttons, and button font def, palette
 const QSize WaterAlert::window_size_ = QSize(400, 150);
@@ -34,7 +34,7 @@ const QFont WaterAlert::button_font_ = QFont(QString("Consolas"), 24);
  * 
  * @param parent `QWidget` pointer to a parent widget.
  * @param palette `QPalette` reference to set the palette as. Defaults to
- *     whatever `QPalette` is returned by `pwr::BasePalette`.
+ *     whatever `QPalette` is returned by `qwr::BasePalette`.
  */
 WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
   : QDialog(parent)
@@ -57,7 +57,7 @@ WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
   button_no_->setFont(WaterAlert::button_font_);
   button_no_->setFlat(true);
   // init + format the declarative label. font is auto size Consolas.
-  label_decl_ = new QLabel("Pomu is telling you to drink your water!", this);
+  label_decl_ = new QLabel("It's time to drink your water!", this);
   label_decl_->setGeometry(QRect(10, 10, 291, 21));
   label_decl_->setFont(QFont("Consolas"));
   // init + format the prompt label. font is 12 pt Sans Serif bold.
@@ -69,7 +69,7 @@ WaterAlert::WaterAlert(QWidget *parent, const QPalette &palette)
 /**
  * Overloaded constructor for the `WaterAlert`.
  * 
- * Uses the `QPalette` returned by `pwr::BasePalette`.
+ * Uses the `QPalette` returned by `qwr::BasePalette`.
  * 
  * @param parent `QWidget` pointer to a parent widget.
  */
@@ -78,7 +78,7 @@ WaterAlert::WaterAlert(QWidget *parent) : WaterAlert(parent, BasePalette()) {}
 /**
  * Default constructor for the `WaterAlert`.
  * 
- * No parent `QWidget` and uses the `QPalette` from `pwr::BasePalette`.
+ * No parent `QWidget` and uses the `QPalette` from `qwr::BasePalette`.
  */
 WaterAlert::WaterAlert() : WaterAlert(nullptr) {}
 
@@ -93,4 +93,4 @@ QPushButton *WaterAlert::button_no() const { return button_no_; }
 QLabel *WaterAlert::label_decl() const { return label_decl_; }
 QLabel *WaterAlert::label_prompt() const { return label_prompt_; }
 
-} // namespace pwr
+} // namespace qwr
