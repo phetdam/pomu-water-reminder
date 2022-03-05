@@ -15,15 +15,13 @@ Icon attribution
 ``water_fountain.png``
    Icon made by photo3idea_studio_ from Flaticon_.
 ``water_icon.png``
-   Icon made by SBTS2018_ from Flaticon_.
+   Icon made by Freepik_ from Flaticon_.
 
 .. _Flaticon: https://www.flaticon.com/
 
 .. _Freepik: https://www.flaticon.com/authors/freepik
 
 .. _photo3idea_studio: https://www.flaticon.com/authors/photo3idea-studio
-
-.. _SBTS2018: https://www.flaticon.com/authors/sbts2018
 
 Note for WSL users
 ------------------
