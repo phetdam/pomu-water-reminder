@@ -17,7 +17,7 @@ The source code for this project is licensed under the `MIT License`__.
 The notification sound ``water-splash-sound.mp3`` by SPANAC_ was downloaded
 from `Free Sounds Library`_ and is licensed under the
 `Creative Commons Attribution 4.0 International`__ license. The sound may be
-downloaded here__ from `Free Sounds Library`_.
+downloaded here__.
 
 .. _SPANAC: https://www.freesoundslibrary.com/author/spanac/
 
