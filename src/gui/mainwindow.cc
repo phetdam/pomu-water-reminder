@@ -10,9 +10,10 @@
 #include <QtCore/Qt>
 #include <QtGui/QAction>
 #include <QtGui/QCloseEvent>
+#include <QtGui/QHideEvent>
 #include <QtGui/QIcon>
+#include <QtGui/QPalette>
 #include <QtGui/QPixmap>
-#include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -29,14 +30,18 @@ const QSize MainWindow::image_size_ = QSize(550, 550);
 /**
  * Overloaded `MainWindow` constructor accepting a `QPalette &`.
  * 
+ * The main window of the application, with all menus and the parent of the
+ * different window components we show. Cannot be minimized or maximized.
+ * 
  * @param palette Reference to desired `QPalette`
  */
 MainWindow::MainWindow(const QPalette &palette)
 {
-  // set size, palette, and icon for MainWindow
+  // set size, palette, icon, window flags for MainWindow
   FixWidgetSize(*this, MainWindow::window_size_);
   setPalette(palette);
   setWindowIcon(QIcon(":/images/water_icon.png"));
+  setWindowFlag(Qt::WindowMinimizeButtonHint, false);
   // QMainWindow main widget displaying water. the QMainWindow base class needs
   // and owns the central widget, freeing when necessary.
   image_label_ = new QLabel(this);
@@ -45,7 +50,6 @@ MainWindow::MainWindow(const QPalette &palette)
   image_label_->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
   image_label_->setPixmap(QPixmap(":/images/water.png"));
   // menu bar and menu setup. MainWindow owns the menu bar, which owns menus
-  // menu_bar()->setStyleSheet("font-family: \"Consolas\", monospace");
   menu_bar();
   file_menu_ = menu_bar()->addMenu("&File");
   settings_menu_ = menu_bar()->addMenu("&Settings");

@@ -3,6 +3,8 @@
  * @author Derek Huang <djh458@stern.nyu.edu>
  * @brief Implementation for the qtwr water alert dialog.
  * @copyright MIT License
+ * 
+ * Adapted from the auto-generated C++ code from Qt Designer.
  */
 
 #include "gui/alertdialog.h"
@@ -20,17 +22,16 @@
 
 namespace qwr {
 
-// AlertDialog size of window, size of buttons, and button font def, palette
-const QSize AlertDialog::window_size_ = QSize(400, 150);
+// AlertDialog size of dialog, size of buttons, and button font def, palette
+const QSize AlertDialog::dialog_size_ = QSize(400, 150);
 const QSize AlertDialog::button_size_ = QSize(71, 41);
 const QFont AlertDialog::button_font_ = QFont(QString("Consolas"), 24);
 
 /**
  * Overloaded constructor for the `AlertDialog` that accepts a `QPalette &`.
  * 
- * AlertDialog is an application-modal subclass of QDialog that manages its own
- * widget data, which we initialize in the constructor. The `AlertDialog` is
- * also capable of emitting its own signals through slot functions.
+ * `AlertDialog` is an application-modal subclass of `QDialog` that manages its
+ * own widget data, which we initialize in the constructor.
  * 
  * @param parent `QWidget` pointer to a parent widget.
  * @param palette `QPalette` reference to set the palette as. Defaults to
@@ -39,7 +40,7 @@ const QFont AlertDialog::button_font_ = QFont(QString("Consolas"), 24);
 AlertDialog::AlertDialog(QWidget *parent, const QPalette &palette)
   : QDialog(parent)
 {
-  FixWidgetSize(*this, AlertDialog::window_size_);
+  FixWidgetSize(*this, AlertDialog::dialog_size_);
   setPalette(palette);
   setModal(true);
   // init + format the "yes" button. button text is "hai" in hiragana. this is
@@ -58,11 +59,11 @@ AlertDialog::AlertDialog(QWidget *parent, const QPalette &palette)
   button_no_->setFlat(true);
   // init + format the declarative label. font is auto size Consolas.
   label_decl_ = new QLabel("It's time to drink your water!", this);
-  label_decl_->setGeometry(QRect(10, 10, 291, 21));
+  label_decl_->setGeometry(10, 10, 291, 21);
   label_decl_->setFont(QFont("Consolas"));
   // init + format the prompt label. font is 12 pt Sans Serif bold.
   label_prompt_ = new QLabel("Will you drink your water?", this);
-  label_prompt_->setGeometry(QRect(10, 40, 241, 21));
+  label_prompt_->setGeometry(10, 40, 241, 21);
   label_prompt_->setFont(QFont("Sans Serif", 12, QFont::Bold));
 }
 

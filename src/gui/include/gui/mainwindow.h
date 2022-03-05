@@ -10,13 +10,14 @@
 #include <QtCore/QSize>
 #include <QtCore/Qt>
 #include <QtGui/QAction>
+#include <QtGui/QCloseEvent>
+#include <QtGui/QHideEvent>
 #include <QtGui/QPalette>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QWidget>
 
 #include "gui/utils.h"
 

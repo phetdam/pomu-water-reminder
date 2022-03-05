@@ -9,6 +9,7 @@
 #define QWR_GUI_ALERTDIALOG_H_
 
 #include <QtCore/QSize>
+#include <QtGui/QFont>
 #include <QtGui/QPalette>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
@@ -31,7 +32,7 @@ public:
   QLabel *label_prompt() const;
 
 private:
-  static const QSize window_size_;
+  static const QSize dialog_size_;
   static const QSize button_size_;
   static const QFont button_font_;
   QOBJECT_MANAGED_CHILD QPushButton *button_yes_;

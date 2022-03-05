@@ -18,6 +18,7 @@
 
 #include "gui/alertdialog.h"
 #include "gui/mainwindow.h"
+#include "gui/prefsdialog.h"
 #include "gui/utils.h"
 
 int main(int argc, char **argv)
@@ -27,12 +28,16 @@ int main(int argc, char **argv)
   app.setPalette(palette);
   std::unique_ptr<qwr::MainWindow> main_window =
     std::make_unique<qwr::MainWindow>();
-  // remove later -- just to demonstrate the notification window
-  QOBJECT_MANAGED_CHILD qwr::AlertDialog *notif_window = new qwr::AlertDialog(
+  // remove later -- just to demonstrate some dialogs
+  QOBJECT_MANAGED_CHILD qwr::AlertDialog *alert_dialog = new qwr::AlertDialog(
     main_window.get()
   );
-  // show both windows
+  QOBJECT_MANAGED_CHILD qwr::PrefsDialog *prefs_dialog = new qwr::PrefsDialog(
+    main_window.get()
+  );
+  // show window/dialogs
   main_window->show();
-  notif_window->show();
+  alert_dialog->show();
+  prefs_dialog->show();
   return app.exec();
 }
