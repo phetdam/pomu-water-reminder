@@ -28,7 +28,7 @@ int main(int argc, char **argv)
   std::unique_ptr<qwr::MainWindow> main_window =
     std::make_unique<qwr::MainWindow>();
   // remove later -- just to demonstrate the notification window
-  QOBJECT_MANAGED_CHILD qwr::WaterAlert *notif_window = new qwr::WaterAlert(
+  QOBJECT_MANAGED_CHILD qwr::AlertDialog *notif_window = new qwr::AlertDialog(
     main_window.get()
   );
   // show both windows

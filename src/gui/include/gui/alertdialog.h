@@ -5,8 +5,8 @@
  * @copyright MIT License
  */
 
-#ifndef QWR_GUI_ALERT_H_
-#define QWR_GUI_ALERT_H_
+#ifndef QWR_GUI_ALERTDIALOG_H_
+#define QWR_GUI_ALERTDIALOG_H_
 
 #include <QtCore/QSize>
 #include <QtGui/QPalette>
@@ -19,12 +19,12 @@
 
 namespace qwr {
 
-class WaterAlert: public QDialog
+class AlertDialog: public QDialog
 {
 public:
-  WaterAlert();
-  WaterAlert(QWidget *);
-  WaterAlert(QWidget *, const QPalette &);
+  AlertDialog();
+  AlertDialog(QWidget *);
+  AlertDialog(QWidget *, const QPalette &);
   QPushButton *button_yes() const;
   QPushButton *button_no() const;
   QLabel *label_decl() const;
@@ -42,4 +42,4 @@ private:
 
 } // namespace qwr
 
-#endif // QWR_GUI_ALERT_H_
+#endif // QWR_GUI_ALERTDIALOG_H_
