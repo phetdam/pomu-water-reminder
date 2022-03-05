@@ -7,8 +7,28 @@ A `Qt6`__ app that reminds you to drink your water.
 
 .. __: https://www.qt.io/product/qt6
 
-Icon attribution
-----------------
+Licensing and attribution
+-------------------------
+
+The source code for this project is licensed under the `MIT License`__.
+
+.. __: LICENSE
+
+The notification sound ``water-splash-sound.mp3`` by SPANAC_ was downloaded
+from `Free Sounds Library`_ and is licensed under the
+`Creative Commons Attribution 4.0 International`__ license. The sound may be
+downloaded here__ from `Free Sounds Library`_.
+
+.. _SPANAC: https://www.freesoundslibrary.com/author/spanac/
+
+.. _Free Sounds Library: https://www.freesoundslibrary.com/
+
+.. __: https://creativecommons.org/licenses/by/4.0/
+
+.. __: https://www.freesoundslibrary.com/water-splash-sound/
+
+Under the Flaticon_ usage license, creator attribution of icons used is
+required, which is done below.
 
 ``water.png``
    Icon made by Freepik_ from Flaticon_.
