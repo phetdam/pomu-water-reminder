@@ -1,25 +1,29 @@
 .. README.rst
 
-pomu-water-reminder
-===================
+water-reminder
+==============
 
-A `Qt6`__ app where `Pomu Rainpuff`__ reminds you to drink your water.
-
-   Disclaimer:
-
-   This project is in no way affiliated with NIJISANJI_, `NIJISANJI EN`_,
-   ANYCOLOR_, or any project of ANYCOLOR_ and is only intended for educational
-   and entertainment purposes.
+A `Qt6`__ app that reminds you to drink your water.
 
 .. __: https://www.qt.io/product/qt6
 
-.. __: https://www.nijisanji.jp/en/members/pomu-rainpuff
+Icon attribution
+----------------
 
-.. _NIJISANJI: https://www.nijisanji.jp/
+``water.png``
+   Icon made by Freepik_ from Flaticon_.
+``water_icon.png``
+   Icon made by SBTS2018_ from Flaticon_.
+``fountain.png``
+   Icon made by photo3idea_studio_ from Flaticon_.
 
-.. _NIJISANJI EN: https://www.nijisanji.jp/en
+.. _Flaticon: https://www.flaticon.com/
 
-.. _ANYCOLOR: https://www.anycolor.co.jp/
+.. _Freepik: https://www.flaticon.com/authors/freepik
+
+.. _SBTS2018: https://www.flaticon.com/authors/sbts2018
+
+.. _photo3idea_studio: https://www.flaticon.com/authors/photo3idea-studio
 
 Note for WSL users
 ------------------
