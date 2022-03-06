@@ -54,7 +54,7 @@ MainWindow::MainWindow(const QPalette &palette)
   file_menu_ = menu_bar()->addMenu("&File");
   settings_menu_ = menu_bar()->addMenu("&Settings");
   help_menu_ = menu_bar()->addMenu("&Help");
-  // create individual actions for menus, owned by the MainWindow
+  // create actions for menus, owned by the MainWindow, with default shortcuts
   save_profile_action_ = new QAction("&Save Profile As...", this);
   load_profile_action_ = new QAction("&Load Profile...", this);
   config_action_ = new QAction("&Configuration", this);

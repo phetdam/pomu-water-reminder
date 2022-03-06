@@ -13,6 +13,7 @@
 #include <QtGui/QFont>
 #include <QtGui/QPalette>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QDialog>
 #include <QtWidgets/QWidget>
 
 #include "gui/utils.h"

@@ -5,7 +5,6 @@
  * @copyright MIT License
  */
 
-#include <iostream>
 #include <memory>
 
 #include <QtCore/QSize>
@@ -17,6 +16,7 @@
 #include <QtWidgets/QMenu>
 
 #include "gui/alertdialog.h"
+#include "gui/keydialog.h"
 #include "gui/mainwindow.h"
 #include "gui/prefsdialog.h"
 #include "gui/utils.h"
@@ -35,9 +35,13 @@ int main(int argc, char **argv)
   QOBJECT_MANAGED_CHILD qwr::PrefsDialog *prefs_dialog = new qwr::PrefsDialog(
     main_window.get()
   );
+  QOBJECT_MANAGED_CHILD qwr::KeyDialog * key_dialog = new qwr::KeyDialog(
+    main_window.get()
+  );
   // show window/dialogs
   main_window->show();
   alert_dialog->show();
   prefs_dialog->show();
+  key_dialog->show();
   return app.exec();
 }
