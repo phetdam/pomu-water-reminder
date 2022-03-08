@@ -3,9 +3,14 @@
 qt-water-reminder
 =================
 
-A `Qt6`__ app that reminds you to drink your water.
+A `Qt6`__ [#]_ app that reminds you to drink your water.
 
 .. __: https://www.qt.io/product/qt6
+
+.. [#] Requires the `Qt Multimedia`_ add-on module in addition to the base
+   Qt6 installation.
+
+.. _Qt Multimedia: https://doc.qt.io/qt-6/qtmultimedia-index.html
 
 Licensing and attribution
 -------------------------
