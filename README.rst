@@ -3,7 +3,7 @@
 qt-water-reminder
 =================
 
-A `Qt6`__ [#]_ app that reminds you to drink your water.
+A `Qt6`__ [#]_ desktop app that reminds you to drink your water.
 
 .. __: https://www.qt.io/product/qt6
 
