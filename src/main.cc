@@ -15,6 +15,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMenu>
 
+#include "gui/aboutdialog.h"
 #include "gui/alertdialog.h"
 #include "gui/keydialog.h"
 #include "gui/mainwindow.h"
@@ -29,19 +30,27 @@ int main(int argc, char **argv)
   std::unique_ptr<qwr::MainWindow> main_window =
     std::make_unique<qwr::MainWindow>();
   // remove later -- just to demonstrate some dialogs
+  /*
   QOBJECT_MANAGED_CHILD qwr::AlertDialog *alert_dialog = new qwr::AlertDialog(
     main_window.get()
   );
   QOBJECT_MANAGED_CHILD qwr::PrefsDialog *prefs_dialog = new qwr::PrefsDialog(
     main_window.get()
   );
-  QOBJECT_MANAGED_CHILD qwr::KeyDialog * key_dialog = new qwr::KeyDialog(
+  QOBJECT_MANAGED_CHILD qwr::KeyDialog *key_dialog = new qwr::KeyDialog(
+    main_window.get()
+  );
+  */
+  QOBJECT_MANAGED_CHILD qwr::AboutDialog *about_dialog = new qwr::AboutDialog(
     main_window.get()
   );
   // show window/dialogs
   main_window->show();
+  /*
   alert_dialog->show();
   prefs_dialog->show();
   key_dialog->show();
+  */
+  about_dialog->show();
   return app.exec();
 }
