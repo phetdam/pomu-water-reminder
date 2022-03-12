@@ -1,7 +1,7 @@
 /**
  * @file prefsdialog.cc
  * @author Derek Huang <djh458@stern.nyu.edu>
- * @brief Header file defining the qtwr preferences dialog.
+ * @brief Implements the qtwr preferences dialog.
  * @copyright MIT License
  * 
  * Adapted from the auto-generated C++ code from Qt Designer.
