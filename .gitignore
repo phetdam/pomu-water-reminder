@@ -4,3 +4,5 @@
 build
 build-windows
 **/*.so
+# ignore list of Ubuntu X11 deps
+qt6.2.3x11deps.rst
