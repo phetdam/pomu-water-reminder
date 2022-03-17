@@ -51,11 +51,10 @@ private:
   static const QSize window_size_;
   static const QSize image_size_;
   QOBJECT_MANAGED_CHILD QLabel *image_label_;
-  QOBJECT_MANAGED_CHILD QMenu *file_menu_;
+  QOBJECT_MANAGED_CHILD QMenu *view_menu_;
   QOBJECT_MANAGED_CHILD QMenu *settings_menu_;
   QOBJECT_MANAGED_CHILD QMenu *help_menu_;
-  QOBJECT_MANAGED_CHILD QAction *save_profile_action_;
-  QOBJECT_MANAGED_CHILD QAction *load_profile_action_;
+  QOBJECT_MANAGED_CHILD QAction *stats_action_;
   QOBJECT_MANAGED_CHILD QAction *config_action_;
   QOBJECT_MANAGED_CHILD QAction *prefs_action_;
   QOBJECT_MANAGED_CHILD QAction *key_shortcuts_action_;

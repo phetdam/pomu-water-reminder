@@ -51,22 +51,20 @@ MainWindow::MainWindow(const QPalette &palette)
   image_label_->setPixmap(QPixmap(":/images/water.png"));
   // menu bar and menu setup. MainWindow owns the menu bar, which owns menus
   menu_bar();
-  file_menu_ = menu_bar()->addMenu("&File");
+  view_menu_ = menu_bar()->addMenu("&View");
   settings_menu_ = menu_bar()->addMenu("&Settings");
   help_menu_ = menu_bar()->addMenu("&Help");
   // create actions for menus, owned by the MainWindow, with default shortcuts
-  save_profile_action_ = new QAction("&Save Profile As...", this);
-  load_profile_action_ = new QAction("&Load Profile...", this);
+  stats_action_ = new QAction("&Statistics", this);
   config_action_ = new QAction("&Configuration", this);
   prefs_action_ = new QAction("&Preferences", this);
   key_shortcuts_action_ = new QAction("&Keyboard Shortcuts", this);
   about_action_ = new QAction("&About", this);
   // add menu actions to menu bar and individual actions to menus
-  menu_bar()->addAction(file_menu_->menuAction());
+  menu_bar()->addAction(view_menu_->menuAction());
   menu_bar()->addAction(settings_menu_->menuAction());
   menu_bar()->addAction(help_menu_->menuAction());
-  file_menu_->addAction(save_profile_action_);
-  file_menu_->addAction(load_profile_action_);
+  view_menu_->addAction(stats_action_);
   settings_menu_->addAction(config_action_);
   settings_menu_->addAction(prefs_action_);
   help_menu_->addAction(key_shortcuts_action_);
