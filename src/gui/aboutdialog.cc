@@ -37,7 +37,7 @@ AboutDialog::AboutDialog(QWidget *parent, const QPalette &palette)
 {
   FixWidgetSize(*this, AboutDialog::dialog_size_);
   setPalette(palette);
-  setWindowTitle("Preferences");
+  setWindowTitle("About");
   setModal(true);
   text_label_ = new QLabel(AboutDialog::text_label_text_, this);
   text_label_->setGeometry(AboutDialog::text_label_rect_);
