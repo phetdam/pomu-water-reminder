@@ -7,11 +7,6 @@
 
 #include "gui/mainwindow.h"
 
-// silence VS Code Intellisense squiggles
-#ifndef __INTELLISENSE__
-#include "gui/moc_mainwindow.cpp"
-#endif // __INTELLISENSE__
-
 #include <QtCore/Qt>
 #include <QtGui/QAction>
 #include <QtGui/QCloseEvent>
@@ -25,6 +20,11 @@
 #include <QtWidgets/QStatusBar>
 
 #include "gui/utils.h"
+
+// silence VS Code Intellisense squiggles
+#ifndef __INTELLISENSE__
+#include "gui/moc_mainwindow.cpp"
+#endif // __INTELLISENSE__
 
 namespace qwr {
 
