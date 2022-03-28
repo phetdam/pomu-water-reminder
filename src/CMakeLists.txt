@@ -1,17 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
 
-if(NOT CMAKE_CXX_FLAGS MATCHES "-O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
-endif()
-
-if(NOT DEFINED CMAKE_PREFIX_PATH)
-set(CMAKE_PREFIX_PATH ./Qt6;/opt/Qt6.2.3)
-endif()
-
-set(CMAKE_AUTORCC ON)
-
-find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
-
 # add_subdirectory(core)
 add_subdirectory(gui)
 
