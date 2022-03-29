@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 # add_subdirectory(core)
 add_subdirectory(gui)
 
+# include_directories(core/include)
 include_directories(gui/include)
 
 # note: resources don't load unless linked using add_executable
