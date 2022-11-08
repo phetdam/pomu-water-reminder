@@ -27,23 +27,18 @@ int main(int argc, char **argv)
   QPalette palette = qwr::BasePalette();
   QApplication app = QApplication(argc, argv);
   app.setPalette(palette);
-  std::unique_ptr<qwr::MainWindow> main_window =
-    std::make_unique<qwr::MainWindow>();
+  auto main_window = std::make_unique<qwr::MainWindow>();
   // remove later -- just to demonstrate some dialogs
   /*
-  QOBJECT_MANAGED_CHILD qwr::AlertDialog *alert_dialog = new qwr::AlertDialog(
-    main_window.get()
-  );
-  QOBJECT_MANAGED_CHILD qwr::PrefsDialog *prefs_dialog = new qwr::PrefsDialog(
-    main_window.get()
-  );
-  QOBJECT_MANAGED_CHILD qwr::KeyDialog *key_dialog = new qwr::KeyDialog(
-    main_window.get()
-  );
+  QOBJECT_MANAGED_CHILD
+  auto alert_dialog = new qwr::AlertDialog(main_window.get());
+  QOBJECT_MANAGED_CHILD
+  auto prefs_dialog = new qwr::PrefsDialog(main_window.get());
+  QOBJECT_MANAGED_CHILD
+  auto key_dialog = new qwr::KeyDialog(main_window.get());
   */
-  QOBJECT_MANAGED_CHILD qwr::AboutDialog *about_dialog = new qwr::AboutDialog(
-    main_window.get()
-  );
+  QOBJECT_MANAGED_CHILD
+  auto about_dialog = new qwr::AboutDialog(main_window.get());
   // show window/dialogs
   main_window->show();
   /*
