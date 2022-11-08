@@ -33,14 +33,14 @@ const QSize MainWindow::window_size_ = QSize(550, 550);
 const QSize MainWindow::image_size_ = QSize(550, 550);
 
 /**
- * Overloaded `MainWindow` constructor accepting a `QPalette &`.
- * 
+ * Overloaded `MainWindow` constructor accepting a `QPalette& `.
+ *
  * The main window of the application, with all menus and the parent of the
  * different window components we show. Cannot be minimized or maximized.
- * 
+ *
  * @param palette Reference to desired `QPalette`
  */
-MainWindow::MainWindow(const QPalette &palette)
+MainWindow::MainWindow(const QPalette& palette)
 {
   // set size, palette, icon, window flags for MainWindow
   FixWidgetSize(*this, MainWindow::window_size_);
@@ -80,17 +80,17 @@ MainWindow::MainWindow(const QPalette &palette)
 
 /**
  * `MainWindow` default constructor.
- * 
+ *
  * Uses the default `QPalette` provided by `qwr::BasePalette`.
  */
 MainWindow::MainWindow() : MainWindow(BasePalette()) {}
 
 /**
  * Handles the `QCloseEvent` received when one attempts to close the app.
- * 
+ *
  * @param event `QCloseEvent` pointer to the triggering event
  */
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent* event)
 {
   // todo: if not saved, pop up a window
   event->accept();
@@ -98,11 +98,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 /**
  * Getters for QWidgets managed by the MainWindow.
- * 
+ *
  * These can all be used to access and modify the state of the private QWidgets
  * while internally storage duration is managed by std::unique_ptr instances.
  */
-QMenuBar *MainWindow::menu_bar() const { return menuBar(); }
-QStatusBar *MainWindow::status_bar() const { return statusBar(); }
+QMenuBar* MainWindow::menu_bar() const { return menuBar(); }
+QStatusBar* MainWindow::status_bar() const { return statusBar(); }
 
 } // namespace qwr

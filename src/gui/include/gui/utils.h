@@ -22,6 +22,6 @@ QPalette BasePalette(void);
 void FixWidgetSize(QWidget &, const QSize &);
 void FixWidgetSize(QWidget &, int, int);
 
-} // namespace qwr
+}  // namespace qwr
 
 #endif // QWR_GUI_UTILS_H_

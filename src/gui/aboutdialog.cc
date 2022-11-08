@@ -21,18 +21,18 @@ namespace qwr {
 // size, label position, label text of about dialog
 const QSize AboutDialog::dialog_size_ = QSize(290, 80);
 const QRect AboutDialog::text_label_rect_ = QRect(10, 10, 280, 60);
-const char *AboutDialog::text_label_text_ =
+const char* AboutDialog::text_label_text_ =
   "A Qt6 app to remind you to drink your water.\n"
   "\n"
   "A first C++ project by [Derek Huang](https://github.com/phetdam/).";
 
 /**
  * Overloaded constructor for the `AboutDialog`.
- * 
- * @param parent `QWidget *` for parent `QObject`.
- * @param palette `const` `QPalette &` giving desired dialog palette.
+ *
+ * @param parent `QWidget* ` for parent `QObject`.
+ * @param palette `const` `QPalette&` giving desired dialog palette.
  */
-AboutDialog::AboutDialog(QWidget *parent, const QPalette &palette)
+AboutDialog::AboutDialog(QWidget* parent, const QPalette &palette)
   : QDialog(parent)
 {
   FixWidgetSize(*this, AboutDialog::dialog_size_);
@@ -46,12 +46,12 @@ AboutDialog::AboutDialog(QWidget *parent, const QPalette &palette)
 
 /**
  * Overloaded constructor for the `AboutDialog`.
- * 
+ *
  * Uses the preferred default palette returned by `qwr::BasePalette`.
- * 
- * @param parent `QWidget *` for parent `QObject`.
+ *
+ * @param parent `QWidget* ` for parent `QObject`.
  */
-AboutDialog::AboutDialog(QWidget *parent) : AboutDialog(parent, BasePalette())
+AboutDialog::AboutDialog(QWidget* parent) : AboutDialog(parent, BasePalette())
 {}
 
 AboutDialog::AboutDialog() : AboutDialog(nullptr) {}

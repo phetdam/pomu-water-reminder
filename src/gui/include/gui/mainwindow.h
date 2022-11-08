@@ -26,43 +26,42 @@
 
 namespace qwr {
 
-class MainWindow: public QMainWindow
-{
+class MainWindow : public QMainWindow {
   Q_OBJECT
 
 public:
   MainWindow();
   MainWindow(const QPalette &);
-  QLabel *image_label() const;
-  QMenuBar *menu_bar() const;
-  QMenu *file_menu() const;
-  QMenu *settings_menu() const;
-  QMenu *help_menu() const;
-  QAction *save_profile_action() const;
-  QAction *load_profile_action() const;
-  QAction *config_action() const;
-  QAction *prefs_action() const;
-  QAction *key_shortcuts_action() const;
-  QAction *about_action() const;
-  QStatusBar *status_bar() const;
+  QLabel* image_label() const;
+  QMenuBar* menu_bar() const;
+  QMenu* file_menu() const;
+  QMenu* settings_menu() const;
+  QMenu* help_menu() const;
+  QAction* save_profile_action() const;
+  QAction* load_profile_action() const;
+  QAction* config_action() const;
+  QAction* prefs_action() const;
+  QAction* key_shortcuts_action() const;
+  QAction* about_action() const;
+  QStatusBar* status_bar() const;
 
 protected:
-  void closeEvent(QCloseEvent *);
+  void closeEvent(QCloseEvent*);
 
 private:
   static const QSize window_size_;
   static const QSize image_size_;
-  QOBJECT_MANAGED_CHILD QLabel *image_label_;
-  QOBJECT_MANAGED_CHILD QMenu *view_menu_;
-  QOBJECT_MANAGED_CHILD QMenu *settings_menu_;
-  QOBJECT_MANAGED_CHILD QMenu *help_menu_;
-  QOBJECT_MANAGED_CHILD QAction *stats_action_;
-  QOBJECT_MANAGED_CHILD QAction *config_action_;
-  QOBJECT_MANAGED_CHILD QAction *prefs_action_;
-  QOBJECT_MANAGED_CHILD QAction *key_shortcuts_action_;
-  QOBJECT_MANAGED_CHILD QAction *about_action_;
+  QOBJECT_MANAGED_CHILD QLabel* image_label_;
+  QOBJECT_MANAGED_CHILD QMenu* view_menu_;
+  QOBJECT_MANAGED_CHILD QMenu* settings_menu_;
+  QOBJECT_MANAGED_CHILD QMenu* help_menu_;
+  QOBJECT_MANAGED_CHILD QAction* stats_action_;
+  QOBJECT_MANAGED_CHILD QAction* config_action_;
+  QOBJECT_MANAGED_CHILD QAction* prefs_action_;
+  QOBJECT_MANAGED_CHILD QAction* key_shortcuts_action_;
+  QOBJECT_MANAGED_CHILD QAction* about_action_;
 };
 
-} // namespace qwr
+}  // namespace qwr
 
 #endif // QWR_GUI_MAINWINDOW_H_

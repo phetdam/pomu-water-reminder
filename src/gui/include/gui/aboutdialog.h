@@ -19,21 +19,20 @@
 
 namespace qwr {
 
-class AboutDialog: public QDialog
-{
+class AboutDialog: public QDialog {
 public:
   AboutDialog();
-  AboutDialog(QWidget *);
-  AboutDialog(QWidget *, const QPalette &);
-  QLabel *text_label() const;
+  AboutDialog(QWidget*);
+  AboutDialog(QWidget*, const QPalette&);
+  QLabel* text_label() const;
 
 private:
-  static const char *text_label_text_;
+  static const char* text_label_text_;
   static const QSize dialog_size_;
   static const QRect text_label_rect_;
-  QOBJECT_MANAGED_CHILD QLabel *text_label_;
+  QOBJECT_MANAGED_CHILD QLabel* text_label_;
 };
 
-} // namespace qwr
+}  // namespace qwr
 
 #endif // QWR_GUI_ABOUTDIALOG_H_
